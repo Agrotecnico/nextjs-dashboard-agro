@@ -1,26 +1,14 @@
-import AcmeLogo from '@/app/ui/acme-logo';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link'
-import { lusitana } from '@/app/ui/fonts'
+import SideNavcnp from '@/app/ui/dashboardcnp/sidenavcnp';
 import Image from 'next/image';
-
-export default function Page() {
+ 
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-[#444]">
-      <main className="max-w-[1024px] mx-auto flex justify-between h-screen flex-col bg-[#f3edf2]">
-        <div className="flex h-20 shrink-0 items-center rounded-lg bg-[#ff8fe7] p-4 md:h-40 [box-shadow:_inset_0px_0px_8px_1px_#cb6db7]">
-          {/* <AcmeLogo /> */}
-          <div className="flex w-full items-center justify-between w-30 text-white md:w-30">
-            <Image
-              src="/a.png"
-              width={160}
-              height={57}
-              className="w-[120px] md:w-[160px]"
-              alt="Screenshots of the dashboard project showing desktop version"
-            />
-            <div className="text-[32px] font-extrabold text-[#cd70b9] [text-shadow:_1px_1px_#954d86] mr-8">2024</div>
-          </div>
-        </div>
+    <div className=" flex min-h-screen flex-col bg-[#b37da722]">{/* imageFormAuto bg-[url('/formAuto.png')]*/}
+      <div className="h-[176px]">{/*  flex-none md:w-64 */}
+        <SideNavcnp />
+      </div>
+      <div className="flex flex-col justify-between flex-grow md:overflow-y-auto md:p-12">{/*  [height:_calc(100vh_-_176px)] */}
+        {children}
         <div className="flex flex-col justify-center h-[152px] bg-[#ffd7f7] rounded-lg [box-shadow:_inset_0px_0px_8px_1px_#ff8fe7]">
           <div  className="flex justify-evenly items-center p-[10px] h-full">
             
@@ -46,7 +34,7 @@ export default function Page() {
 
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
